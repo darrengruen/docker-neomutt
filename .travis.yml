@@ -1,0 +1,20 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_script:
+  - docker login -u ${DOCKER_USERNAME} --password-stdin <<< ${DOCKER_PASSWORD}
+
+script:
+  - make lint
+  - make build
+  - make test
+
+after_script:
+  - make push
+
+
+
