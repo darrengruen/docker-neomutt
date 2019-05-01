@@ -8,9 +8,6 @@ img           ?= ${ns}/${app}:${tag}
 ns            ?= gruen
 tag           ?= $(shell sed 's|/|_|g' <<< ${TRAVIS_BRANCH})
 
-
-$(info $${TRAVIS_BRANCH}: ${TRAVIS_BRANCH})
-$(info $${tag}: ${tag})
 .PHONY: build
 build:
 	docker build \

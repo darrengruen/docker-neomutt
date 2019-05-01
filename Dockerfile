@@ -19,3 +19,7 @@ RUN apt-get update \
 
 USER neomutt
 
+ARG COMMIT_SHA
+ARG BRANCH_NAME
+ARG BUILD_DATE
+
