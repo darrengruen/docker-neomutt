@@ -1,0 +1,16 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: "Whoami"
+    command: "whoami"
+    expectedOutput: ["neomutt"]
+  - name: "which neomutt"
+    command: "which"
+    args: ["neomutt"]
+    expectedOutput: ['/usr/bin/neomutt']
+metadataTest:
+  cmd: []
+  entrypoint: ["neomutt"]
+  exposedPorts: []
+  volumes: ["/home/neomutt/.config/neomutt"]
+  workdir: "/home/neomutt"
