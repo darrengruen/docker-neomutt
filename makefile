@@ -1,12 +1,16 @@
+SHELL := /bin/bash
 
-app        = $(shell basename "${PWD}" | sed 's|docker-||g')
+app           ?= $(shell basename "${PWD}" | sed 's|docker-||g')
 TRAVIS_BRANCH ?= $(shell git rev-parse --abbrev-ref HEAD 2> /dev/null || echo "unstable")
-build_date = $(shell date -u +%FT%T.%S%Z)
+build_date    ?= $(shell date -u +%FT%T.%S%Z)
 TRAVIS_COMMIT ?= $(shell git rev-parse --short HEAD 2> /dev/null || echo "unstable")
-img        = ${ns}/${app}:${tag}
-ns         = gruen
-tag        = $(shell sed 's|/|_|g' <<< ${TRAVIS_BRANCH})
+img           ?= ${ns}/${app}:${tag}
+ns            ?= gruen
+tag           ?= $(shell sed 's|/|_|g' <<< ${TRAVIS_BRANCH})
 
+
+$(info $${TRAVIS_BRANCH}: ${TRAVIS_BRANCH})
+$(info $${tag}: ${tag})
 .PHONY: build
 build:
 	docker build \
