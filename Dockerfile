@@ -2,9 +2,7 @@ FROM debian:buster
 
 ENTRYPOINT ["neomutt"]
 
-ENV NEOMUTTRC /home/neomutt/.config/neomutt/neomuttrc
-
-VOLUME ["/home/neomutt/.config/neomutt"]
+ENV NEOMUTTRC /home/neomutt/.neomuttrc
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -15,6 +13,7 @@ RUN apt-get update \
 		python3-pip=18.1-5 \
 		python3-setuptools=40.8.0-1 \
 		python3-wheel=0.32.3-2 \
+		urlscan=0.8.2-1 \
 		urlview=0.9-21 \
 		vim=2:8.1.0875-3 \
 		w3m=0.5.3-37 \
