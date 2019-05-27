@@ -8,9 +8,14 @@ img           ?= ${ns}/${app}:${tag}
 ns            ?= gruen
 tag           ?= $(shell sed 's|/|_|g' <<< ${TRAVIS_BRANCH})
 
+ifdef NOCACHE
+	nocache := --no-cache
+endif
+
 .PHONY: build
 build:
 	docker build \
+		${nocache} \
 	  --build-arg BRANCH_NAME=${TRAVIS_BRANCH} \
 	  --build-arg BUILD_DATE=${build_date} \
 	  --build-arg COMMIT_SHA=${TRAVIS_COMMIT} \
