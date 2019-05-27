@@ -12,5 +12,5 @@ metadataTest:
   cmd: []
   entrypoint: ["neomutt"]
   exposedPorts: []
-  volumes: ["/home/neomutt/.config/neomutt"]
+  volumes: []
   workdir: "/home/neomutt"
