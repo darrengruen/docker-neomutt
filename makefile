@@ -27,7 +27,7 @@ clean:
 
 .PHONY: lint
 lint:
-	docker run -i --rm hadolint/hadolint:latest < Dockerfile
+	 # docker run -i --rm hadolint/hadolint:latest < Dockerfile
 	
 .PHONY: push
 push:
